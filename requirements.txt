@@ -1,0 +1,5 @@
+# To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
+flask==2.0.1
+flask-sqlalchemy==2.5.1
+flask-cors==3.0.10
+# flask-restplus==0.13.0
