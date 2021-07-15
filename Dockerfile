@@ -12,7 +12,7 @@ ENV PYTHONUNBUFFERED=1
 # Install pip requirements
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt 
-RUN python -m pip install --no-deps flask-restx==0.4.0
+RUN python -m pip install  flask-restx==0.4.0
 
 WORKDIR /app
 COPY . /app
