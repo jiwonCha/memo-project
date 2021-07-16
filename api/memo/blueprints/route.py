@@ -66,4 +66,4 @@ class Memos(Resource):
         db.session.add(new_memo)
         db.session.commit()
 
-        return redirect("/memos")
+        return redirect("/memo-service/memos")
