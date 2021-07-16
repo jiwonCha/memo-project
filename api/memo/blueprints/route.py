@@ -8,7 +8,7 @@ from flask_restx import Namespace, Resource, Api
 from api import db
 from api.memo.model import Memo
 
-memo = Blueprint("memo", __name__)
+memo = Blueprint("memo", __name__, url_prefix="memo-service")
 logger = logging.getLogger(name="route")
 
 api_extension = Api(
