@@ -30,4 +30,4 @@ def test_get_memos(app):
 
 def test_post_memo(app):
     res = app.post("/memo-service/memos", data=dict(content="This is Memo"))
-    assert res.status_code == 302
+    assert res.status_code == 200
