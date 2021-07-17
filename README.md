@@ -75,3 +75,9 @@ Please refer below link.
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@jiwonCha](https://github.com/jiwonCha) - Develope Memo Project
+
+🔧 GitHub Action
+
+This code manage with github action workflow.
+
+If is invoked PR or Commits in main branch, build docker image and push theme to EC2 ECR.
