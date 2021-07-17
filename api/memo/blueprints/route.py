@@ -22,17 +22,11 @@ api_extension = Api(
 namespace = Namespace("memos", "Memo related endpoints")
 api_extension.add_namespace(namespace)
 
-# hello_world_model = namespace.model('HelloWorld', {
-#     'message': fields.String(
-#         readonly=True,
-#         description='Hello world message'
-#     )
-# })
 
 class DateTimeEncoder(json.JSONEncoder):
     def default(self, z):
         if isinstance(z, datetime):
-            return (str(z.strftime("%m/%d %H:%M")))
+            return str(z.strftime("%m/%d %H:%M"))
         else:
             return super().default(z)
 
@@ -60,7 +54,7 @@ class Memos(Resource):
 
     def post(self):
         """Create Memo Instance"""
-        data = request.form['content']
+        data = request.form["content"]
 
         new_memo = Memo(content=data)
         db.session.add(new_memo)
