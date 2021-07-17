@@ -1,16 +1,21 @@
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
+from api.config import alchemy_uri
 
 db = SQLAlchemy()
 
 
-def create_app():
+def create_app(test_config=None):
     app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_HOST", "sqlite:///flaskdatabase.db")
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    if test_config:
+        app.config.update(test_config)
+    else:
+        app.config["SQLALCHEMY_DATABASE_URI"] = alchemy_uri()
+        app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    
     CORS(app)
 
     db.init_app(app)
