@@ -53,6 +53,14 @@ If you run this project in your local, can access this [link](http://127.0.0.1:5
 
 This is swagger open api
 
+
+![image](https://user-images.githubusercontent.com/5278032/126025059-022823ac-efb2-4ddc-9259-33979e01c034.png)
+![image](https://user-images.githubusercontent.com/5278032/126025068-5e17a523-99e9-4e5d-a016-9908d0ddc187.png)
+![image](https://user-images.githubusercontent.com/5278032/126025060-08246e43-0a34-4449-9225-67cc7a5751af.png)
+![image](https://user-images.githubusercontent.com/5278032/126025073-fef828c6-cf3a-4d64-8523-da707c7fcd37.png)
+
+
+
 ## 🚀 Deployment <a name = "deployment"></a>
 
 Please refer below link.
