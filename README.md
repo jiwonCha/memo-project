@@ -19,6 +19,7 @@
 - [Usage](#usage)
 - [Built Using](#built_using)
 - [Authors](#authors)
+- [Github Action](#action)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -76,7 +77,8 @@ Please refer below link.
 
 - [@jiwonCha](https://github.com/jiwonCha) - Develope Memo Project
 
-🔧 GitHub Action
+
+## 🔧 GitHub Action <a name = "action">
 
 This code manage with github action workflow.
 
