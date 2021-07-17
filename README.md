@@ -50,15 +50,20 @@ docker build .
 
 ## 🎈 Usage <a name="usage"></a>
 
-If you run this project in your local, can access this [link](http://127.0.0.1:5000/doc)
+### Swagger Open API
 
-This is swagger open api
-
+If you run this project in your local, can access this [Swagger API Page](http://127.0.0.1:5000/doc)
 
 ![image](https://user-images.githubusercontent.com/5278032/126025059-022823ac-efb2-4ddc-9259-33979e01c034.png)
 ![image](https://user-images.githubusercontent.com/5278032/126025068-5e17a523-99e9-4e5d-a016-9908d0ddc187.png)
 ![image](https://user-images.githubusercontent.com/5278032/126025060-08246e43-0a34-4449-9225-67cc7a5751af.png)
 ![image](https://user-images.githubusercontent.com/5278032/126025073-fef828c6-cf3a-4d64-8523-da707c7fcd37.png)
+
+### Project Main Page
+
+If you run this project in your local, can access this [Project Main Page](http://127.0.0.1:5000/memos)
+
+![image](https://user-images.githubusercontent.com/5278032/126030036-87f7494c-3514-4e2e-9a7c-f32635b95c5c.png)
 
 
 
