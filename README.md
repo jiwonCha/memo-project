@@ -82,4 +82,4 @@ Please refer below link.
 
 This code manage with github action workflow.
 
-If is invoked PR or Commits in main branch, build docker image and push theme to EC2 ECR.
+If is invoked PR or Commits in main branch, build docker image and push theme to EC2 ECR
