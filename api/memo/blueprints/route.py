@@ -23,41 +23,37 @@ namespace = Namespace("memos", "Memo related endpoints")
 api_extension.add_namespace(namespace)
 
 
-class DateTimeEncoder(json.JSONEncoder):
-    def default(self, z):
-        if isinstance(z, datetime):
-            return str(z.strftime("%m/%d %H:%M"))
-        else:
-            return super().default(z)
-
-
 @namespace.route("")
 class Memos(Resource):
     def get(self):
         """Get Memo Lists"""
         logger.debug("Get Memo Lists")
-        memos = Memo.query.all()
-        serialized_data = []
 
-        for memo in memos:
-            serialized_data.append(memo.serialize)
+        contents_list = Memo.get_memos()
+        # memos = Memo.query.all()
+        # serialized_data = []
 
-        json_serialized_data = json.dumps(serialized_data, cls=DateTimeEncoder)
-        contents_list = []
-        for data in json.loads(json_serialized_data):
-            content = {}
-            content["date"] = data["created_at"]
-            content["contents"] = data["content"]
-            contents_list.append(content)
+        # for memo in memos:
+        #     serialized_data.append(memo.serialize)
+
+        # json_serialized_data = json.dumps(serialized_data, cls=DateTimeEncoder)
+        # contents_list = []
+        # for data in json.loads(json_serialized_data):
+        #     content = {}
+        #     content["date"] = data["created_at"]
+        #     content["contents"] = data["content"]
+        #     contents_list.append(content)
 
         return make_response(render_template("view.html", result=contents_list), 200)
 
     def post(self):
         """Create Memo Instance"""
-        data = request.form["content"]
+        data = request.form['content']
 
         new_memo = Memo(content=data)
         db.session.add(new_memo)
         db.session.commit()
 
-        return redirect("/memo-service/memos")
+        contents_list = Memo.get_memos()
+
+        return make_response(render_template("view.html", result=contents_list), 200)
