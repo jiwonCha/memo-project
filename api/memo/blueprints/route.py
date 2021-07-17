@@ -6,7 +6,7 @@ from flask.json import jsonify
 from flask_restx import Namespace, Resource, Api
 
 from api import db
-from api.memo.model import Memo
+from api.memo.model import Memo, get_memos
 
 memo = Blueprint("memo", __name__, url_prefix="/memo-service")
 logger = logging.getLogger(name="route")
@@ -29,7 +29,7 @@ class Memos(Resource):
         """Get Memo Lists"""
         logger.debug("Get Memo Lists")
 
-        contents_list = Memo.get_memos()
+        contents_list = get_memos()
         # memos = Memo.query.all()
         # serialized_data = []
 
@@ -54,6 +54,6 @@ class Memos(Resource):
         db.session.add(new_memo)
         db.session.commit()
 
-        contents_list = Memo.get_memos()
+        contents_list = get_memos()
 
         return make_response(render_template("view.html", result=contents_list), 200)

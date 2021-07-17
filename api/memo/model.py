@@ -16,27 +16,29 @@ class Memo(db.Model):
             "created_at": self.created_at,
         }
 
-    def get_memos(self):
-        memos = self.query.all()
-        serialized_data = []
-
-        for memo in memos:
-            serialized_data.append(self.serialize)
-
-        json_serialized_data = json.dumps(serialized_data, cls=DateTimeEncoder)
-        contents_list = []
-        for data in json.loads(json_serialized_data):
-            content = {}
-            content["date"] = data["created_at"]
-            content["contents"] = data["content"]
-            contents_list.append(content)
-
-        return contents_list
-
-
 class DateTimeEncoder(json.JSONEncoder):
     def default(self, z):
         if isinstance(z, datetime):
             return str(z.strftime("%m/%d %H:%M"))
         else:
             return super().default(z)
+
+def get_memos(self):
+    memos = Memo.query.all()
+    serialized_data = []
+
+    for memo in memos:
+        serialized_data.append(memo.serialize)
+
+    json_serialized_data = json.dumps(serialized_data, cls=DateTimeEncoder)
+    contents_list = []
+    for data in json.loads(json_serialized_data):
+        content = {}
+        content["date"] = data["created_at"]
+        content["contents"] = data["content"]
+        contents_list.append(content)
+
+    return contents_list
+
+
+
