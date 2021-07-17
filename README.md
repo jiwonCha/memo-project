@@ -49,7 +49,7 @@ docker build .
 
 ## 🎈 Usage <a name="usage"></a>
 
-If you run this project in your local, can access this [link](http://127.0.0.1:5000/memo-service/doc)
+If you run this project in your local, can access this [link](http://127.0.0.1:5000/doc)
 
 This is swagger open api
 

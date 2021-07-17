@@ -23,11 +23,11 @@ def app():
 
 
 def test_get_memos(app):
-    res = app.get("/memo-service/memos")
+    res = app.get("/memos")
     assert res.status_code == 200
     assert res.content_type == "text/html; charset=utf-8"
 
 
 def test_post_memo(app):
-    res = app.post("/memo-service/memos", data=dict(content="This is Memo"))
+    res = app.post("/memos", data=dict(content="This is Memo"))
     assert res.status_code == 200
