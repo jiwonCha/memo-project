@@ -1,12 +1,11 @@
 import sys, getopt
 
 from api import db, create_app
-import api.config as config
 
 
 def main(argv):
     if len(argv) == 0:
-        db.create_all(app=create_app())
+        app = create_app()
     else:
         try:
             opts, args = getopt.getopt(argv, "hm:")
@@ -20,14 +19,15 @@ def main(argv):
                 sys.exit(2)
             elif opt == "-m":
                 mode = arg
-                if mode == "test" or mode == "local":
+                if mode == "local":
                     TEST_CONFIG = {
-                        "TESTING": True,
-                        "SQLALCHEMY_DATABASE_URI": config.test_db_uri(),
+                        "SQLALCHEMY_DATABASE_URI": 'sqlite:///:memory:',
                     }
                     db.create_all(app=create_app(TEST_CONFIG))
 
-    create_app().run(debug=True, host="0.0.0.0", port=5000, use_reloader=True)
+                    app = create_app(TEST_CONFIG)
+    
+    app.run(debug=True, host="0.0.0.0", port=5000, use_reloader=True)
 
 
 if __name__ == "__main__":
