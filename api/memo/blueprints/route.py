@@ -30,25 +30,14 @@ class Memos(Resource):
         logger.debug("Get Memo Lists")
 
         contents_list = get_memos()
-        # memos = Memo.query.all()
-        # serialized_data = []
-
-        # for memo in memos:
-        #     serialized_data.append(memo.serialize)
-
-        # json_serialized_data = json.dumps(serialized_data, cls=DateTimeEncoder)
-        # contents_list = []
-        # for data in json.loads(json_serialized_data):
-        #     content = {}
-        #     content["date"] = data["created_at"]
-        #     content["contents"] = data["content"]
-        #     contents_list.append(content)
 
         return make_response(render_template("view.html", result=contents_list), 200)
 
     def post(self):
         """Create Memo Instance"""
-        data = request.form['content']
+        logger.debug("Post Memo")
+
+        data = request.form["content"]
 
         new_memo = Memo(content=data)
         db.session.add(new_memo)

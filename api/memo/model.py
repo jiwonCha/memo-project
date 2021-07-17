@@ -23,7 +23,7 @@ class DateTimeEncoder(json.JSONEncoder):
         else:
             return super().default(z)
 
-def get_memos(self):
+def get_memos():
     memos = Memo.query.all()
     serialized_data = []
 
